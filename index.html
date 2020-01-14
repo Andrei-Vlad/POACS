@@ -22,7 +22,7 @@ $.ajaxSetup({timeout:1000});
 function servo1(angle)
 {
 	TextVar = form.inputbox.value;
-	ArduinoVar = "https://" + TextVar + ":80";
+	ArduinoVar = "https://andrei-vlad.github.io/POACS/" + TextVar + ":80";
 	$.get( ArduinoVar, { "sr1": angle })	;
 	{Connection: close};
 }
