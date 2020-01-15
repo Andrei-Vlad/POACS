@@ -14,17 +14,26 @@
 	</FORM>
 </div>
 <h3> Scroll it to move servo 1 </h3>
-<input type="range" min="20" max="170" onmouseup="servo1(this.value)" />
+<input type="range" min="20" max="170" onmouseup="servo1(this.id, this.value)" />
 </body>
 
 <script>
 $.ajaxSetup({timeout:1000});
-function servo1(angle)
-{
+	
+function sendPosition(slider, value) {
+  console.log(slider+": "+value);
+
 	TextVar = form.inputbox.value;
 	ArduinoVar = "https://andrei-vlad.github.io/POACS/" + TextVar + ":80";
 	$.get( ArduinoVar, { "sr1": angle })	;
-	{Connection: close};
+	
+
+  var request = new XMLHttpRequest();
+  request.open("POST", "ArduinoVar");
+  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  request.send(encodeURI(slider)+"="+value);
+{Connection: close};
 }
+	
 </script>
 </html>
