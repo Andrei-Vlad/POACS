@@ -20,18 +20,18 @@
 <script>
 $.ajaxSetup({timeout:1000});
 	
-function servo1(slider, value) {
-  console.log(slider+": "+value);
+function servo1(slider, angle) {
+  console.log(slider+": "+angle);
 
-	TextVar = form.inputbox.value;
+	TextVar = form.inputbox.angle;
 	ArduinoVar = "https://andrei-vlad.github.io/POACS/" + TextVar + ":80";
-	$.get( ArduinoVar, { "sr1": value })	;
+	$.get( ArduinoVar, { "sr1": angle })	;
 	
 
   var request = new XMLHttpRequest();
-  request.open("POST", "sr1");
+  request.open("POST", "");
   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  request.send(encodeURI(slider)+"="+value);
+  request.send(encodeURI(slider)+"="+angle);
 {Connection: close};
 }
 	
