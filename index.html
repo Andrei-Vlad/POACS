@@ -25,7 +25,7 @@ function servo1(slider, value) {
 
 	TextVar = form.inputbox.value;
 	ArduinoVar = "https://andrei-vlad.github.io/POACS/" + TextVar + ":80";
-	$.get( ArduinoVar, { "sr1": angle })	;
+	$.get( ArduinoVar, { "sr1": value })	;
 	
 
   var request = new XMLHttpRequest();
